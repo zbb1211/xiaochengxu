@@ -1,5 +1,5 @@
 <view class="weather-container">
-  <view class="weather-temp">12°</view>
-  <view class="weather-desc">阴天，有一些雾霾</view>
-  <image class="weather-bg" src="/images/overcast-bg.png"/>
+  <view class="weather-temp">{{temp}}°</view>
+  <view class="weather-desc">{{weather}}</view>
+  <image class="weather-bg" src="{{imgSrc}}" mode="scaleToFill"/>
 </view>
