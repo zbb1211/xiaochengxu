@@ -32,10 +32,25 @@
   width: 36rpx;
   height: 28rpx;
 }
-text {
+.forecast {
   font-size: 30rpx;
   line-height: 42rpx;
   color: #666;
   margin-left: 10rpx;
   opacity: 0.8;
+}
+.scroll-view_H {
+  display: flex;
+}
+.scroll-inner {
+  width: 100rpx;
+  text-align: center;
+}
+.forecast-time {
+  font-size: 30rpx;
+  line-height: 42rpx;
+}
+.forecast-icon {
+  width: 90rpx;
+  height: 90rpx;
 }

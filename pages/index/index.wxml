@@ -5,5 +5,14 @@
 </view>
 <view class="weather-text">
   <image class="icon" src="/images/time-icon.png"/>
-  <text>未来24小时天气预测</text>
+  <text class="forecast">未来24小时天气预测</text>
 </view>
+<scroll-view class="scroll-view_H" scroll-x="true">
+  <view wx:for="{{dataList}}" class="scroll-inner" wx:key="{{item.id}}">
+    <view class="scroll-item">
+      <text class="forecast-time">{{item.id}}</text>
+      <image class="forecast-icon" src="/images/sunny-icon.png"/>
+      <text class="forecast-time">{{item.temp}}°</text>
+    </view>
+  </view>
+</scroll-view>

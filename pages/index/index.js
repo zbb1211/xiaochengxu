@@ -14,12 +14,13 @@ const colorMap = {
   'lightrain': '#b6d6e2',
   'heavyrain': '#c3ccd0',
   'snow': '#99e3ff'
-}
+};
 Page({
   data: {
     temp: 0,
     weather: '',
-    imgSrc: ''
+    imgSrc: '',
+    dataList: []
   },
   getNowWeather(callback) {
     wx.request({
@@ -29,11 +30,12 @@ Page({
       },
       success: (res) => {
         const { data: { result } } = res;
-        const { now: { temp, weather } } = result;
+        const { now: { temp, weather }, forecast } = result;
         this.setData({
           temp: temp,
           weather: weatherMap[weather],
-          imgSrc: `/images/${weather}-bg.png`
+          imgSrc: `/images/${weather}-bg.png`,
+          dataList: forecast
         });
         wx.setNavigationBarColor({
           backgroundColor: colorMap[weather],
