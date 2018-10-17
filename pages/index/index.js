@@ -31,11 +31,26 @@ Page({
       success: (res) => {
         const { data: { result } } = res;
         const { now: { temp, weather }, forecast } = result;
+        const date = new Date();
+        const time = date.getHours();
+        const tempArr = [];
+        forecast.forEach(item => {
+          const obj = {};
+          obj.src=`/images/${item.weather}-icon.png`;
+          obj.temp = item.temp;
+          if (item.id === 0) {
+            obj.id = "现在";
+          } else {
+            // obj.id = (parseFloat(time) + parseFloat(item.id)*3) > 24 ? ((parseFloat(time) + parseFloat(item.id)*3) - 24) + '时' : (parseFloat(time) + parseFloat(item.id)*3) + '时';
+            obj.id = (item.id * 3 + time) % 24 + '时';
+          }
+          tempArr.push(obj)
+        });
         this.setData({
           temp: temp,
           weather: weatherMap[weather],
           imgSrc: `/images/${weather}-bg.png`,
-          dataList: forecast
+          dataList: tempArr
         });
         wx.setNavigationBarColor({
           backgroundColor: colorMap[weather],

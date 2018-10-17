@@ -27,6 +27,7 @@
 .weather-text {
   text-align: center;
   margin-top: 40rpx;
+  margin-bottom: 40rpx;
 }
 .icon {
   width: 36rpx;
@@ -39,18 +40,26 @@
   margin-left: 10rpx;
   opacity: 0.8;
 }
-.scroll-view_H {
+.scroll-wrapper {
   display: flex;
 }
 .scroll-inner {
-  width: 100rpx;
+  flex-shrink: 0;
+  width: 120rpx;
   text-align: center;
+  margin-right: 10rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .forecast-time {
+  display: inline-block;
+  width: 100%;
   font-size: 30rpx;
   line-height: 42rpx;
 }
 .forecast-icon {
-  width: 90rpx;
-  height: 90rpx;
+  width: 60rpx;
+  height: 60rpx;
 }
