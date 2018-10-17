@@ -3,3 +3,7 @@
   <view class="weather-desc">{{weather}}</view>
   <image class="weather-bg" src="{{imgSrc}}" mode="scaleToFill"/>
 </view>
+<view class="weather-text">
+  <image class="icon" src="/images/time-icon.png"/>
+  <text>未来24小时天气预测</text>
+</view>

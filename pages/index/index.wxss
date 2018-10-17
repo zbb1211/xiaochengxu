@@ -24,3 +24,18 @@
   top: 0;
   z-index: -1;
 }
+.weather-text {
+  text-align: center;
+  margin-top: 40rpx;
+}
+.icon {
+  width: 36rpx;
+  height: 28rpx;
+}
+text {
+  font-size: 30rpx;
+  line-height: 42rpx;
+  color: #666;
+  margin-left: 10rpx;
+  opacity: 0.8;
+}
