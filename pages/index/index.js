@@ -72,6 +72,9 @@ Page({
       }
     });
   },
+  toggle() {
+    
+  },
   onLoad() {
     this.getNowWeather();
   },

@@ -1,0 +1,22 @@
+.list-wrapper {
+  margin: 0 30rpx;
+  padding: 20rpx 0;
+  border-bottom: 1px solid #e8e8e8;
+  display: flex;
+}
+.date-wrapper {
+  flex: 1;
+}
+.date {
+  font-size: 24rpx;
+  line-height: 36rpx;
+  color: #aaa;
+}
+.temp {
+  flex: 1;
+  line-height: 90rpx;
+}
+.icon {
+  width: 90rpx;
+  height: 90rpx;
+}

@@ -1,0 +1,8 @@
+<view class="list-wrapper" wx:for="{{list}}" wx:key="id">
+  <view class="date-wrapper">
+    <view class="title">{{item.day}}</view>
+    <view class="date">{{item.time}}</view>
+  </view>
+  <view class="temp">{{item.temp}}</view>
+  <image class="icon" src="{{item.iconpath}}"/>
+</view>
