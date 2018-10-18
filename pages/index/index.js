@@ -20,7 +20,10 @@ Page({
     temp: 0,
     weather: '',
     imgSrc: '',
-    dataList: []
+    dataList: [],
+    todayDate: '',
+    todayMinTemp: 0,
+    todayMaxTemp: 0
   },
   getNowWeather(callback) {
     wx.request({
@@ -30,9 +33,13 @@ Page({
       },
       success: (res) => {
         const { data: { result } } = res;
-        const { now: { temp, weather }, forecast } = result;
+        const { now: { temp, weather }, forecast, today } = result;
         const date = new Date();
         const time = date.getHours();
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+        const todayDate = `${year}-${month}-${day}`;
         const tempArr = [];
         forecast.forEach(item => {
           const obj = {};
@@ -50,7 +57,10 @@ Page({
           temp: temp,
           weather: weatherMap[weather],
           imgSrc: `/images/${weather}-bg.png`,
-          dataList: tempArr
+          dataList: tempArr,
+          todayDate: todayDate,
+          todayMinTemp: today.minTemp,
+          todayMaxTemp: today.maxTemp
         });
         wx.setNavigationBarColor({
           backgroundColor: colorMap[weather],

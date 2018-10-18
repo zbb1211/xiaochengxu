@@ -63,3 +63,30 @@
   width: 60rpx;
   height: 60rpx;
 }
+.weather-now {
+  position: absolute;
+  box-sizing: border-box;
+  padding: 20rpx 0;
+  left: 40rpx;
+  right: 40rpx;
+  bottom: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  display: flex;
+}
+.weather-today {
+  flex: 1;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  opacity: 0.65;
+}
+.today-temp {
+  padding: 0 20rpx;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  opacity: 0.65;
+}
+.image-arrow {
+  width: 13rpx;
+  height: 24rpx;
+  margin-top: 8rpx;
+}

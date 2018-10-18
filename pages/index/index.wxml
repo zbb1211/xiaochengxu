@@ -2,6 +2,11 @@
   <view class="weather-temp">{{temp}}°</view>
   <view class="weather-desc">{{weather}}</view>
   <image class="weather-bg" src="{{imgSrc}}" mode="scaleToFill"/>
+  <view class="weather-now">
+    <text class="weather-today">{{todayDate}} 今天</text>
+    <text class="today-temp">{{todayMinTemp}}° - {{todayMaxTemp}}°</text>
+    <image class="image-arrow" src="/images/arrow.png"></image>
+  </view>
 </view>
 <view class="weather-text">
   <image class="icon" src="/images/time-icon.png"/>
