@@ -15,6 +15,10 @@ const colorMap = {
   'heavyrain': '#c3ccd0',
   'snow': '#99e3ff'
 };
+const QQMapWX = require('../../libs/qqmap-wx-jssdk.js');
+const mapWX = new QQMapWX({
+  key: 'P3BBZ-EWBR3-JU33R-YF67X-YJ7W7-2HFXQ'
+});
 Page({
   data: {
     temp: 0,
@@ -23,13 +27,45 @@ Page({
     dataList: [],
     todayDate: '',
     todayMinTemp: 0,
-    todayMaxTemp: 0
+    todayMaxTemp: 0,
+    city: '上海市'
+  },
+  getCityName() {
+    let _this = this;
+    wx.getLocation({
+      success(res) {
+        const latitude = res.latitude;
+        const longitude = res.longitude;
+        mapWX.reverseGeocoder({
+          location: {
+            latitude,
+            longitude
+          },
+          success: (res) => {
+            const { result: { address_component: { city } } } = res;
+            _this.setData({
+              city
+            })
+          },
+          fail: (error) => {
+            console.log('将经纬度转化为城市名称fail', error);
+          }
+        })
+      },
+      fail() {
+        console.log('fail');
+      },
+      completed() {
+        _this.getNowWeather();
+      }
+    });
   },
   getNowWeather(callback) {
+    let _this = this;
     wx.request({
       url: 'https://test-miniprogram.com/api/weather/now',
       data: {
-        city: '深圳市'
+        city: _this.data.city
       },
       success: (res) => {
         const { data: { result } } = res;
@@ -72,11 +108,16 @@ Page({
       }
     });
   },
-  toggle() {
-    
-  },
   onLoad() {
     this.getNowWeather();
+  },
+  onTapLocation() {
+    this.getCityName();
+  },
+  togglePage() {
+    wx.navigateTo({
+      url: `/pages/list/list?city=${this.data.city}`
+    })
   },
   onPullDownRefresh() {
     this.getNowWeather(() => {

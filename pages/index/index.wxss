@@ -1,13 +1,35 @@
 .weather-container {
   position: relative;
   width: 750rpx;
-  padding-top: 200rpx;
   padding-bottom: 224rpx;
+  padding-top: 20rpx;
+}
+.location-container {
+  margin-bottom: 60rpx;
+  font-size: 30rpx;
+  color: #666;
+}
+.city {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.location-icon {
+  width: 21rpx;
+  height: 30rpx;
 }
 .weather-temp {
   font-size: 200rpx;
   line-height: 280rpx;
   opacity: 0.8;
+  text-align: center;
+  color: #111;
+}
+.desc {
+  height: 42rpx;
+  line-height: 42rpx;
+  margin-top: 10rpx;
+  width: 100%;
   text-align: center;
 }
 .weather-desc {
@@ -70,8 +92,9 @@
   left: 40rpx;
   right: 40rpx;
   bottom: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  border-top: 1px solid #999;
   display: flex;
+  color: #555;
 }
 .weather-today {
   flex: 1;

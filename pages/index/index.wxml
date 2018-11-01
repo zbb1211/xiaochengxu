@@ -1,8 +1,15 @@
 <view class="weather-container">
+    <view class="location-container">
+        <view class="city">
+            <image src="/images/location-icon.png" class="location-icon"/>
+            <text>{{city}}</text>
+          </view>
+          <view class="desc" bindtap="getCityName">点击获取当前位置</view>
+    </view>
   <view class="weather-temp">{{temp}}°</view>
   <view class="weather-desc">{{weather}}</view>
   <image class="weather-bg" src="{{imgSrc}}" mode="scaleToFill"/>
-  <view class="weather-now" bindtap="toggle()">
+  <view class="weather-now" bindtap="togglePage">
     <text class="weather-today">{{todayDate}} 今天</text>
     <text class="today-temp">{{todayMinTemp}}° - {{todayMaxTemp}}°</text>
     <image class="image-arrow" src="/images/arrow.png"></image>
